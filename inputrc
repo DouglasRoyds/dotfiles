@@ -1,2 +1,14 @@
-set completion-ignore-case on
-set match-hidden-files off
+# .dotfiles/inputrc
+# Symlink me as ~/.inputrc
+
+set input-meta on
+set output-meta on
+
+set completion-ignore-case On
+set match-hidden-files Off
+set editing-mode vi
+
+# PgUp/PgDn history-search-backward/forward
+"\e[5~": history-search-backward
+"\e[6~": history-search-forward
+
