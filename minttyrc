@@ -10,9 +10,13 @@ FontHeight=9
 Columns=128
 Rows=64
 
+# Ctrl-Shift-C/V for copy & paste
+CtrlShiftShortcuts=yes
+
 ForegroundColour=131,148,150
 BackgroundColour=0,31,36
-CursorColour=220,50,47
+CursorColour=222,222,222
+CursorType=block
 
 Black=0,0,0
 Red=191,0,0
