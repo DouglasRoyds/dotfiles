@@ -1,0 +1,11 @@
+[user]
+	name = Douglas Royds
+	email = douglas.royds@server.fake
+[core]
+	excludesfile = ~/.gitignore
+	editor = vim
+[merge]
+	tool = vimdiff
+[credential]
+[color]
+	ui = auto
