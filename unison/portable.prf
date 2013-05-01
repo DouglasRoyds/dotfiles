@@ -1,0 +1,49 @@
+# Unison preferences file
+# Synchronising Douglas's document repository between local HDD and portable USB HDD
+# Launch this profile with:
+#
+#     $ unison portable
+
+include default
+
+root = /home/douglas/Documents
+root = /media/usb/Documents
+
+# Causes Unison to double-check (at the end of update detection) that this path exists, and abort if it does not.
+# Useful when Unison is used to synchronize removable media, to prevent Unison cheerfully erasing everything
+# because the removable path wasn't there.
+# Contrary to what's written in the manual, the mountpoint option must refer to a path within the roots
+mountpoint = Pictures
+
+# Don't ask for confirmation on non-conflicting changes - just do it.
+# Unison will still ask what to do when there's a conflict,
+# and it asks for confirmation before propagating all the changes as well.
+auto = true
+
+# Pretendwin makes Unison use file creation times as "pseudo-inode-numbers", even when running on a Unix system.
+# Fastcheck makes Unison check the modification time and length of a file, instead of reading the full contents of every
+# file. This may cause Unison to miss propagating an update if the modification time and length of the file are both
+# unchanged by an update. However, Unison will never overwrite such an update, since it always does a safe check for
+# updates as well.
+# As the USB drive is a FAT32 system, I have little control over the permissions. Just ignore them.
+# Not required for Linux filesystems.
+pretendwin = true
+fastcheck = true
+perms = 0
+
+# Keep backup copies of all deleted or modified files (hence the *)
+# Keep them in a central location (rather than spread throughout the tree)
+backup = Name *
+backupdir = /media/usb/Backups
+
+ignore = Path Music
+ignore = Path Pictures/Ndx/NdxBackups
+
+# Pictures.new and Videos.new are photos and videos that have also been put in Pictures or Videos on the other machine.
+# Ignore them so that they don't conflict, and deleted pictures don't magically reappear on the other machine after a synch
+ignore = Path Pictures.new
+ignore = Path Videos.new
+
+# Thunderbird touches the .msf files every time, but I don't think they contain useful information
+ignore = Regex Email/.*\.msf
+
