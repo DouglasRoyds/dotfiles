@@ -1,7 +1,6 @@
 #!/bin/sh
 # Allows less to view the contents of .ipk files
-# Install me as ~/.lessfilter:
-#     $ install -m775 tait.openembedded/trunk/tools/lessfilter ~/.lessfilter
+# Install me as ~/.lessfilter
 
 case "$1" in
    *.ipk)
