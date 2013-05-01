@@ -1,0 +1,44 @@
+#!/bin/sh
+# Allows less to view the contents of .ipk files
+# Install me as ~/.lessfilter:
+#     $ install -m775 tait.openembedded/trunk/tools/lessfilter ~/.lessfilter
+
+case "$1" in
+   *.ipk)
+      echo "$1:"
+      for script in $(ar -p "$1" control.tar.gz | tar -tz | grep -v '^\./$'); do
+         echo $script:
+         ar -p "$1" control.tar.gz | tar -xzO $script
+         echo
+      done
+      echo '*** Contents:'
+      ar -p "$1" data.tar.gz | tar -tzv
+      ;;
+
+   # These patterns adapted from /usr/share/source-highlight/src-hilite-lesspipe.sh
+   # We can't just directly source src-hilite-lesspipe.sh, as it assumes that it's the boss, and includes a *) case
+   # If source-highlight is not installed, these commands will exit 127, passing control back to lesspipe
+   # source-highlight uses ANSI characters to generate the colour, so you need:
+   #     export LESS=-r
+   *ChangeLog | *changelog)
+      source-highlight --failsafe -f esc --lang-def=changelog.lang --style-file=esc.style -i $1
+      ;;
+
+   *Makefile | *makefile | *.make)
+      source-highlight --failsafe -f esc --lang-def=makefile.lang --style-file=esc.style -i $1
+      ;;
+
+   *.cpp | *.cxx | *.hpp | *.c | *.h | *.py | *.lua | *.java | *.js | *.xml)
+      source-highlight --failsafe --infer-lang -f esc --style-file=esc.style -i $1
+      ;;
+
+   *)
+      # The standard lesspipe/lessfile filter should handle this input
+      exit 1
+      ;;
+
+esac
+
+# This filter has handled the input
+exit 0
+

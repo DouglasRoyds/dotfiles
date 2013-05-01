@@ -60,9 +60,6 @@ PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]$user_host\[\033[00m\]:\[\
 # Enable the double-star glob pattern, eg. this/**/that
 shopt -s globstar
 
-# Ignore case, always accept ANSI characters
-export LESS=-ir
-
 # Use the Other True Editor on the command-line
 set -o vi
 bind -m vi-insert “\C-l”:clear-screen
