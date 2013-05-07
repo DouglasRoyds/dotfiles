@@ -6,8 +6,8 @@ if [ "$TERM" != "dumb" ] && [ -x /usr/bin/dircolors ]; then
 fi
 
 alias date='date +"%A %d %b %Y %l:%M:%S%p"'
-alias egrep="egrep ${color} --exclude-dir=generated --exclude-dir=.svn --exclude=tags -I"
-alias grep="grep   ${color} --exclude-dir=generated --exclude-dir=.svn --exclude=tags -I"
+alias egrep="egrep ${color}"
+alias grep="grep ${color}"
 alias ls='ls ${color}'
 alias nautilus='nautilus --no-desktop 2>/dev/null'
 alias rdesktop='rdesktop -g1920x1080'

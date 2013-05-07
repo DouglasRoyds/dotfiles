@@ -72,3 +72,9 @@ set -P
 # Disable XON/XOFF flow control (ie. Ctrl-S), so that I can use Ctrl-S as the complement to Ctrl-R
 stty -ixon
 
+# grep is fussy about the order of --include and --exclude[-dir] on the command line:
+# grep will not respect a --include that has any --excludes preceding it.
+# grep doesn't seem to respect --color=auto in GREP_OPTIONS, so I have left that in an alias.
+# Don't export GREP_OPTIONS, as doing so will potentially trip up scripts that aren't compatible with my GREP_OPTIONS.
+GREP_OPTIONS="--exclude-dir=generated --exclude-dir=.svn --exclude=tags -I"
+
