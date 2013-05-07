@@ -30,6 +30,7 @@ auto = true
 pretendwin = true
 fastcheck = true
 perms = 0
+dontchmod = true
 
 # Keep backup copies of all deleted or modified files (hence the *)
 # Keep them in a central location (rather than spread throughout the tree)
@@ -38,6 +39,7 @@ backupdir = /media/usb/Backups
 
 ignore = Path Music
 ignore = Path Pictures/Ndx/NdxBackups
+ignore = Path Technology/Software/Tools/Subversion/svn-book-html-chunk/
 
 # Pictures.new and Videos.new are photos and videos that have also been put in Pictures or Videos on the other machine.
 # Ignore them so that they don't conflict, and deleted pictures don't magically reappear on the other machine after a synch
