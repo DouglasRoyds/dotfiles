@@ -23,7 +23,7 @@ case "$1" in
       source-highlight --failsafe -f esc --lang-def=changelog.lang --style-file=esc.style -i $1
       ;;
 
-   *Makefile | *makefile | *.make)
+   *Makefile | *makefile | *.make | *.mk)
       source-highlight --failsafe -f esc --lang-def=makefile.lang --style-file=esc.style -i $1
       ;;
 
