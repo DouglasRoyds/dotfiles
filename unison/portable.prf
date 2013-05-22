@@ -37,15 +37,15 @@ dontchmod = true
 backup = Name *
 backupdir = /media/usb/Backups
 
-ignore = Path Music
-ignore = Path Pictures/Ndx/NdxBackups
-ignore = Path Technology/Software/Tools/Subversion/svn-book-html-chunk/
+# Regex is anchored at the root. Path is not.
+ignore = Regex Music
+ignore = Regex Pictures/Ndx/NdxBackups
 
 # Pictures.new and Videos.new are photos and videos that have also been put in Pictures or Videos on the other machine.
 # Ignore them so that they don't conflict, and deleted pictures don't magically reappear on the other machine after a synch
-ignore = Path Pictures.new
-ignore = Path Videos.new
+ignore = Regex Pictures.new
+ignore = Regex Videos.new
 
 # Thunderbird touches the .msf files every time, but I don't think they contain useful information
-ignore = Regex Email/.*\.msf
+ignore = Name *.msf
 
