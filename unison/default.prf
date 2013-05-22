@@ -2,12 +2,8 @@
 log = true
 logfile = /home/douglas/.unison/unison.log
 
-# In interactive mode, the user can add new preferences (commonly ignores) from the GUI.
-# By default, new preferences will be appended to the start-up preferences file.
-# Always add them to this file instead, just so that I can find them
-addprefsto = default
-
 ignore = Name {.*~,*~,.#*}
 ignore = Name {,.}*{.swp}
 ignore = Name {Thumbs.db}
 ignore = Name {,.}*{.pyc}
+
