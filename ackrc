@@ -8,3 +8,6 @@
 # This is the same as grep --color.
 --color-match=bold red
 
+# CMake generates *.make files
+--type-add=make:ext:make
+
