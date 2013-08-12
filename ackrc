@@ -12,3 +12,5 @@
 # CMake generates *.make files
 --type-add=make:ext:make
 
+--ignore-file=ext:pdf,rtf
+
