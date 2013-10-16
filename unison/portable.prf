@@ -10,8 +10,7 @@ root = /home/douglas/Documents
 root = /media/usb/Documents
 
 # Causes Unison to double-check (at the end of update detection) that this path exists, and abort if it does not.
-# Useful when Unison is used to synchronize removable media, to prevent Unison cheerfully erasing everything
-# because the removable path wasn't there.
+# Prevents Unison cheerfully erasing everything because a removable drive wasn't there.
 # Contrary to what's written in the manual, the mountpoint option must refer to a path within the roots
 mountpoint = Pictures
 
@@ -38,7 +37,6 @@ backup = Name *
 backupdir = /media/usb/Backups
 
 # Regex is anchored at the root. Path is not.
-ignore = Regex Music
 ignore = Regex Pictures/Ndx/NdxBackups
 
 # Pictures.new and Videos.new are photos and videos that have also been put in Pictures or Videos on the other machine.
