@@ -8,7 +8,9 @@ set completion-ignore-case On
 set match-hidden-files Off
 set editing-mode vi
 
-# PgUp/PgDn history-search-backward/forward
-"\e[5~": history-search-backward
-"\e[6~": history-search-forward
+# UpArrow/DownArrow history-search-backward/forward
+# The up and down arrows still behave as normal when no characters have been typed,
+# but behave the same as in Vim once leading characters have been typed: searching back through the history.
+"[A": history-search-backward
+"[B": history-search-forward
 
