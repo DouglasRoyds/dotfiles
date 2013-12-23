@@ -21,12 +21,13 @@ alias eclipse='eclipse 2>/dev/null'
 alias eog='eog 2>/dev/null'
 alias evince='evince 2>/dev/null'
 alias file-roller='file-roller 2>/dev/null'
+alias firefox='firefox 2>/dev/null'
+alias gimp='gimp 2>/dev/null'
 alias gnome-control-center='gnome-control-center 2>/dev/null'
 alias meld='meld 2>/dev/null'
 alias rhythmbox='rhythmbox 2>/dev/null'
 alias totem='totem 2>/dev/null'
 alias unison='unison 2>/dev/null'
-alias gimp='gimp 2>/dev/null'
 
 # Source host-specific aliases
 test -r "${HOME}/.bash_aliases_d/$(hostname)" && source "${HOME}/.bash_aliases_d/$(hostname)"
