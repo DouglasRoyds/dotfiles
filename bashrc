@@ -24,7 +24,7 @@ function prompt_command {
 
    # Remove leading directories beyond a certain length
    # Strip any partial directory names
-   local pwdmaxlen=30
+   local pwdmaxlen=40
    if [ ${#short_pwd} -gt $pwdmaxlen ]; then
       local pwdoffset=$(( ${#short_pwd} - $pwdmaxlen ))
       short_pwd="${short_pwd:$pwdoffset:$pwdmaxlen}"
