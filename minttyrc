@@ -5,15 +5,13 @@ OpaqueWhenFocused=no
 BoldAsColour=yes
 FontIsBold=no
 FontSmoothing=default
-Font=Courier New
-FontHeight=9
+Font=Lucida Console
+FontHeight=10
 Columns=128
 Rows=64
-
-ForegroundColour=131,148,150
-BackgroundColour=0,31,36
-CursorColour=220,50,47
-
+ForegroundColour=228,228,228
+BackgroundColour=0,0,0
+CursorColour=233,233,233
 Black=0,0,0
 Red=191,0,0
 Green=0,191,0
@@ -30,4 +28,4 @@ BoldBlue=96,96,255
 BoldMagenta=222,22,222
 BoldCyan=22,222,222
 BoldWhite=222,222,222
-
+CursorBlinks=no
