@@ -1,0 +1,16 @@
+# Might as well
+--sort-files
+
+# As per Vim: Ignore case, unless some character in the search string is in upper case
+--smart-case
+
+# I really can't stomach ack's default bright yellow inverse, and bold green filename.
+# These are the same as grep --color.
+--color-match=bold red
+--color-filename=magenta
+
+# CMake generates *.make files
+--type-add=make:ext:make
+
+--ignore-file=ext:pdf,rtf
+

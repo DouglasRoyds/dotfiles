@@ -1,0 +1,12 @@
+tidy-mark: no
+wrap: 120
+wrap-attributes: no
+wrap-script-literals: yes
+tab-size: 8
+indent: auto
+indent-spaces: 3
+indent-attributes: yes
+output-xhtml: yes
+break-before-br: yes
+logical-emphasis: yes
+clean: yes

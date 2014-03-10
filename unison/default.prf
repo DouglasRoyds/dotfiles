@@ -1,0 +1,10 @@
+# Unison default preferences file
+log = true
+logfile = /home/douglas/.unison/unison.log
+
+ignore = Name {.*~,*~,.#*}
+ignore = Name {,.}*{.swp}
+ignore = Name {Thumbs.db}
+ignore = Name {,.}*{.pyc}
+ignore = Name desktop.ini
+

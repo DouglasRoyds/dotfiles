@@ -1,0 +1,17 @@
+#!/bin/bash
+# Douglas's .bash_completion file
+
+for file in ~/.bash_completion.d/*; do
+   source $file
+done
+
+# Silence tilde expansion
+# See /etc/bash_completion
+__expand_tilde_by_ref() {
+   : # Nothing to see here
+}
+
+# Use _cd completion function for pushd, so that we autocomplete on the CDPATH
+# Also add default completion, so that we can tab-complete into avfs archives in ~/.avfs
+complete -v -F _cd -o nospace -o default pushd
+

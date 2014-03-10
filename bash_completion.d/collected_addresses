@@ -1,0 +1,16 @@
+#!/bin/bash
+
+_collected_addresses()
+{
+   local cur prev addresses
+   COMPREPLY=()
+   cur="${COMP_WORDS[COMP_CWORD]}"
+   prev="${COMP_WORDS[COMP_CWORD-1]}"
+   addresses=$(gawk '/^mail/{print $2}' ~/.collected_addresses.ldif)
+
+   COMPREPLY=( $(compgen -W "${addresses}" -- ${cur}) )
+   return 0
+}
+complete -F _collected_addresses sendmail
+complete -F _collected_addresses mpack
+
