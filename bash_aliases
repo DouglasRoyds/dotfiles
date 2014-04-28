@@ -5,7 +5,6 @@ if [ "$TERM" != "dumb" ] && [ -x /usr/bin/dircolors ]; then
     color='--color=auto'
 fi
 
-alias date='date +"%A %d %b %Y %l:%M:%S%p"'
 alias egrep="egrep ${color}"
 alias grep="grep ${color}"
 alias ls='ls ${color}'
