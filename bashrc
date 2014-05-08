@@ -20,7 +20,7 @@ esac
 
 function prompt_command {
    local trunc_string="..."
-   short_pwd="${PWD/$HOME/~}"
+   short_pwd="${PWD/$HOME/\~}"
 
    # Remove leading directories beyond a certain length
    # Strip any partial directory names
