@@ -10,10 +10,13 @@ FontHeight=10
 Columns=128
 Rows=64
 CtrlShiftShortcuts=yes
-ForegroundColour=227,232,232
-BackgroundColour=0,18,21
+
 CursorColour=222,222,222
-CursorBlinks=no
+CursorBlinks=yes
+CursorType=block
+
+ForegroundColour=227,232,232
+BackgroundColour=0,0,0
 Black=0,0,0
 Red=191,0,0
 Green=0,191,0
