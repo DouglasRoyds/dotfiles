@@ -8,7 +8,6 @@ fi
 alias egrep="egrep ${color}"
 alias grep="grep ${color}"
 alias ls='ls ${color}'
-alias nautilus='nautilus --no-desktop 2>/dev/null'
 alias rdesktop='rdesktop -g1920x1080'
 alias svnmeld='svn diff --diff-cmd=subversion_meld_wrapper'
 alias svnvimdiff='svn diff --diff-cmd=/usr/local/bin/subversion_vimdiff_wrapper'
