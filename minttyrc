@@ -13,6 +13,7 @@ CtrlShiftShortcuts=yes
 
 CursorColour=222,222,222
 CursorBlinks=yes
+CursorType=block
 
 ForegroundColour=227,232,232
 BackgroundColour=0,0,0
