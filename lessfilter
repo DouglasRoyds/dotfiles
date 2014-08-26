@@ -31,6 +31,10 @@ case "$1" in
       source-highlight --failsafe --infer-lang -f esc --style-file=esc.style -i $1
       ;;
 
+   *conf | *config | *.bbclass | *.bb | *.inc)
+      source-highlight --failsafe -f esc --lang-def=sh.lang --style-file=esc.style -i $1
+      ;;
+
    *)
       # The standard lesspipe/lessfile filter should handle this input
       exit 1
