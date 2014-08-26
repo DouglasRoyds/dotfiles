@@ -78,3 +78,6 @@ stty -ixon
 # Exporting GREP_OPTIONS comes with the risk of tripping up scripts that aren't compatible with my GREP_OPTIONS.
 export GREP_OPTIONS="--exclude-dir=generated --exclude-dir=.svn --exclude=tags -I"
 
+# Handy tmux reminder, just because I don't use it often
+ps -u$USER | grep -q tmux && echo -e "\n*** tmux session active. Reattach with $ tmux attach"
+
