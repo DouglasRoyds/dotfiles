@@ -8,7 +8,7 @@ fi
 alias egrep="egrep ${color}"
 alias grep="grep ${color}"
 alias ls='ls ${color}'
-alias rdesktop='rdesktop -g1920x1080'
+alias rdesktop='rdesktop -g1920x1060'
 alias svnmeld='svn diff --diff-cmd=subversion_meld_wrapper'
 alias svnvimdiff='svn diff --diff-cmd=/usr/local/bin/subversion_vimdiff_wrapper'
 alias tree='tree -CF --dirsfirst -I .svn -I CVS -I .git -I downloads'
