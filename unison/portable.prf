@@ -5,9 +5,11 @@
 #     $ unison portable
 
 include default
+include portable_paths.inc
 
-root = /home/douglas/Documents
-root = /media/usb/Documents
+# Keep backup copies of all deleted or modified files (hence the *)
+# Keep them in a central location (rather than spread throughout the tree)
+backup = Name *
 
 # Causes Unison to double-check (at the end of update detection) that this path exists, and abort if it does not.
 # Prevents Unison cheerfully erasing everything because a removable drive wasn't there.
@@ -30,11 +32,6 @@ pretendwin = true
 fastcheck = true
 perms = 0
 dontchmod = true
-
-# Keep backup copies of all deleted or modified files (hence the *)
-# Keep them in a central location (rather than spread throughout the tree)
-backup = Name *
-backupdir = /media/usb/Backups
 
 # Regex is anchored at the root. Path is not.
 ignore = Regex Pictures/Ndx/NdxBackups
