@@ -16,6 +16,12 @@ backup = Name *
 # Contrary to what's written in the manual, the mountpoint option must refer to a path within the roots
 mountpoint = Pictures
 
+# Unison's built-in implementation of the rsync algorithm makes transferring updates to existing files pretty fast.
+# However, for whole-file copies of newly created files, the built-in transfer method is not highly optimized.
+# If you have rsync installed, you can make Unison use it by setting the `copythreshold` flag to something non-negative.
+# Setting it to 1000 causes rsync to be used for all transfers larger than a megabyte.
+copythreshold = 1000
+
 # Don't ask for confirmation on non-conflicting changes - just do it.
 # Unison will still ask what to do when there's a conflict,
 # and it asks for confirmation before propagating all the changes as well.
