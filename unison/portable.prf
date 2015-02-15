@@ -28,10 +28,9 @@ copythreshold = 1000
 auto = true
 
 # Pretendwin makes Unison use file creation times as "pseudo-inode-numbers", even when running on a Unix system.
-# Fastcheck makes Unison check the modification time and length of a file, instead of reading the full contents of every
-# file. This may cause Unison to miss propagating an update if the modification time and length of the file are both
-# unchanged by an update. However, Unison will never overwrite such an update, since it always does a safe check for
-# updates as well.
+# Fastcheck makes Unison check the modification time and length of a file, instead of reading the full contents of every file.
+# This may cause Unison to miss propagating an update if the modification time and length of the file are both unchanged by an update.
+# However, Unison will never overwrite such an update, since it always does a safe check for updates as well.
 # As the USB drive is a FAT32 system, I have little control over the permissions. Just ignore them.
 # Not required for Linux filesystems.
 pretendwin = true
