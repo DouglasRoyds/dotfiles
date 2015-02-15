@@ -49,3 +49,8 @@ ignore = Regex Videos.new
 # Thunderbird touches the .msf files every time, but I don't think they contain useful information
 ignore = Name *.msf
 
+ignore = Name {Adobe Premiere Pro Auto-Save}
+ignore = Name {Adobe Premiere Pro Preview Files}
+ignore = Name {Encoded Files}
+ignore = Name {Media Cache Files}
+
