@@ -9,8 +9,9 @@
 --color-match=bold red
 --color-filename=magenta
 
-# CMake generates *.make files
+# CMake generates *.make and Makefile2 files
 --type-add=make:ext:make
+--type-add=make:is:Makefile2
 
 --ignore-file=ext:pdf,rtf
 
