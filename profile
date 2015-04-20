@@ -8,10 +8,11 @@
 # I prefer 664 for new files over the default 644.
 umask 0002
 
-# Ignore case
-# Always accept ANSI characters from tree and source-highlight
+# Ignore case.
+# Always accept ANSI characters from tree and source-highlight.
+# Stand search targets off the top of the screen by a few lines.
 # In .profile, as I also launch less via keyboard shortcuts
-export LESS=-iR
+export LESS=-iRj5
 
 export EDITOR=/usr/bin/vim
 
