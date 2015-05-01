@@ -14,8 +14,7 @@ HISTFILESIZE=10000
 shopt -s histappend
 
 case "$COLORTERM" in
-    gnome-terminal)  export TERM=xterm-256color
-                     ;;
+    gnome-terminal|xfce4-terminal)  export TERM=xterm-256color ;;
 esac
 
 function prompt_command {
