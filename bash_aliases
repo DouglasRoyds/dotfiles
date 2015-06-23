@@ -5,8 +5,12 @@ if [ "$TERM" != "dumb" ] && [ -x /usr/bin/dircolors ]; then
     color='--color=auto'
 fi
 
-alias egrep="egrep ${color}"
-alias grep="grep ${color}"
+# grep is fussy about the order of --include and --exclude[-dir] on the command line.
+# grep will not respect a --include that has any --excludes preceding it.
+grep_options="--exclude-dir=generated --exclude-dir=.svn --exclude=tags -I $color"
+alias egrep="egrep $grep_options"
+alias grep="grep $grep_options"
+
 alias ls='ls ${color}'
 alias rdesktop='rdesktop -g1920x1060'
 alias svnmeld='svn diff --diff-cmd=subversion_meld_wrapper'

@@ -72,12 +72,6 @@ set -P
 # Disable XON/XOFF flow control (ie. Ctrl-S), so that I can use Ctrl-S as the complement to Ctrl-R
 stty -ixon
 
-# grep is fussy about the order of --include and --exclude[-dir] on the command line:
-# grep will not respect a --include that has any --excludes preceding it.
-# grep doesn't seem to respect --color=auto in GREP_OPTIONS, so I have left that in an alias.
-# Exporting GREP_OPTIONS comes with the risk of tripping up scripts that aren't compatible with my GREP_OPTIONS.
-export GREP_OPTIONS="--exclude-dir=generated --exclude-dir=.svn --exclude=tags -I"
-
 # Handy tmux reminder, just because I don't use it often
 ps -u$USER | grep -q tmux && echo -e "\n*** tmux session active. Reattach with $ tmux attach"
 
