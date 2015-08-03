@@ -75,3 +75,24 @@ stty -ixon
 # Handy tmux reminder, just because I don't use it often
 ps -u$USER | grep -q tmux && echo -e "\n*** tmux session active. Reattach with $ tmux attach"
 
+# ssh-agent
+# Adapted from Joseph Reagle
+# http://www.cygwin.com/ml/cygwin/2001-06/msg00537.html
+ssh_env=$HOME/.ssh/environment
+start_agent() {
+   echo "Initialising SSH agent..."
+   ssh-agent | sed 's/^echo/#echo/' > $ssh_env
+   echo "Succeeded"
+   chmod 600 $ssh_env
+   . $ssh_env > /dev/null
+   ssh-add
+}
+
+if [ -f "$ssh_env" ]; then
+   . $ssh_env > /dev/null
+   ps -efp ${SSH_AGENT_PID} | grep 'ssh-agent$' > /dev/null \
+      || start_agent
+else
+   start_agent;
+fi
+
