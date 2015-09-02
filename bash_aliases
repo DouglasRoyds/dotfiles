@@ -12,6 +12,7 @@ alias egrep="egrep $grep_options"
 alias grep="grep $grep_options"
 
 alias ls='ls ${color}'
+alias pstree='pstree -U'
 alias rdesktop='rdesktop -g1920x1060'
 alias svnmeld='svn diff --diff-cmd=subversion_meld_wrapper'
 alias svnvimdiff='svn diff --diff-cmd=/usr/local/bin/subversion_vimdiff_wrapper'
