@@ -54,7 +54,14 @@ function prompt_command {
 export PROMPT_COMMAND=prompt_command
 
 # I only ever use a colour prompt.
-PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]$user_host\[\033[00m\]:\[\033[01;34m\]$short_pwd\[\033[00m\]\$ '
+red=$(tput setaf 1)
+green=$(tput setaf 2)
+blue=$(tput setaf 4)
+white=$(tput setaf 7)
+bold=$(tput bold)
+boldoff=$(tput sgr0)
+usercolour=$(test $(whoami) = "root" && echo -n $red || echo -n $green)
+PS1='${debian_chroot:+($debian_chroot)}${bold}${usercolour}$user_host${white}:${blue}$short_pwd${white}${boldoff}\$ '
 
 # Enable the double-star glob pattern, eg. this/**/that
 shopt -s globstar
