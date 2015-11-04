@@ -9,6 +9,7 @@
 [credential]
 [color]
 	ui = auto
+	status = always
 [push]
 	default = current
 
