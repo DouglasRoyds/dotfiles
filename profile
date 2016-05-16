@@ -2,6 +2,7 @@
 # Rather than taking over the Ubuntu or Cygwin defaults completely,
 # I just have a few of my preferred settings in this file.
 # Source me from ~/.profile
+# vim: ft=sh
 
 # The default umask is set in /etc/profile
 # To set the umask for ssh logins, install and configure the libpam-umask package.
