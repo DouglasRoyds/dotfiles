@@ -78,7 +78,44 @@ stty -ixon
 # Handy tmux reminder, just because I don't use it often
 ps -u$USER | grep -q tmux && echo -e "\n*** tmux session active. Reattach with $ tmux attach"
 
-if ! ssh-add -l | grep -q /home/$USER/.ssh; then
-   ssh-add
+# Start an ssh-agent
+# Adapted from Joseph Reagle and Matt Lambie:
+# http://www.cygwin.com/ml/cygwin/2001-06/msg00537.html
+# http://stackoverflow.com/a/112618
+ssh_env=$HOME/.ssh/environment
+if [ -f $ssh_env ] ; then
+   . $ssh_env > /dev/null
+   if ! kill -0 $SSH_AGENT_PID 2>/dev/null; then
+      echo "Stale ssh-agent file found. Spawning new agent"
+      eval $(ssh-agent | tee $ssh_env)
+   fi
+else
+   echo "Starting ssh-agent"
+   eval $(ssh-agent | tee $ssh_env)
 fi
+chmod 600 $ssh_env
+
+# More complexity here than required - still trying to debug what's going on.
+# TODO: Simplify me to just if ! ssh-add -l; then ...
+ssh-add -l >/dev/null; exit_code=$?
+case $exit_code in
+   0) # Key(s) already added to ssh-agent. Nothing to do
+      ;;
+
+   1) # An agent is running, and SSH_AGENT_PID is set correctly, but no keys are added.
+      ssh-add
+      ;;
+
+   2) # Error cases
+      echo "SSH_AGENT_PID = ${SSH_AGENT_PID}"
+      if ps -A | grep ssh-agent; then
+         echo "The SSH_AGENT_PID variable is set wrongly."
+      else
+         echo "No ssh-agent running at all"
+      fi
+      ;;
+
+   *) # Also an error case
+      echo "What? Exit code = ${exit_code}"
+esac
 
