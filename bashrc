@@ -75,9 +75,6 @@ set -P
 # Disable XON/XOFF flow control (ie. Ctrl-S), so that I can use Ctrl-S as the complement to Ctrl-R
 stty -ixon
 
-# Handy tmux reminder, just because I don't use it often
-ps -u$USER | grep -q tmux && echo -e "\n*** tmux session active. Reattach with $ tmux attach"
-
 # Start an ssh-agent
 # Adapted from Joseph Reagle and Matt Lambie:
 # http://www.cygwin.com/ml/cygwin/2001-06/msg00537.html
