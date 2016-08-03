@@ -75,23 +75,6 @@ set -P
 # Disable XON/XOFF flow control (ie. Ctrl-S), so that I can use Ctrl-S as the complement to Ctrl-R
 stty -ixon
 
-# Start an ssh-agent
-# Adapted from Joseph Reagle and Matt Lambie:
-# http://www.cygwin.com/ml/cygwin/2001-06/msg00537.html
-# http://stackoverflow.com/a/112618
-ssh_env=$HOME/.ssh/environment
-if [ -f $ssh_env ] ; then
-   . $ssh_env > /dev/null
-   if ! kill -0 $SSH_AGENT_PID 2>/dev/null; then
-      echo "Stale ssh-agent file found. Spawning new agent"
-      eval $(ssh-agent | tee $ssh_env)
-   fi
-else
-   echo "Starting ssh-agent"
-   eval $(ssh-agent | tee $ssh_env)
-fi
-chmod 600 $ssh_env
-
 # More complexity here than required - still trying to debug what's going on.
 # TODO: Simplify me to just if ! ssh-add -l; then ...
 ssh-add -l >/dev/null; exit_code=$?

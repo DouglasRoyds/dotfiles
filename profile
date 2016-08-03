@@ -12,3 +12,20 @@ export LESS=-iRj5
 
 export EDITOR=/usr/bin/vim
 
+# Start an ssh-agent
+# Adapted from Joseph Reagle and Matt Lambie:
+# http://www.cygwin.com/ml/cygwin/2001-06/msg00537.html
+# http://stackoverflow.com/a/112618
+ssh_env=$HOME/.ssh/environment
+if [ -f $ssh_env ] ; then
+   . $ssh_env > /dev/null
+   if ! kill -0 $SSH_AGENT_PID 2>/dev/null; then
+      echo "Stale ssh-agent file found. Spawning new agent"
+      eval $(ssh-agent | tee $ssh_env)
+   fi
+else
+   echo "Starting ssh-agent"
+   eval $(ssh-agent | tee $ssh_env)
+fi
+chmod 600 $ssh_env
+
