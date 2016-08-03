@@ -97,5 +97,11 @@ case $exit_code in
 
    *) # Also an error case
       echo "What? Exit code = ${exit_code}"
+      echo "SSH_AGENT_PID = ${SSH_AGENT_PID}"
+      if ps -A | grep ssh-agent; then
+         echo "The SSH_AGENT_PID variable is set wrongly."
+      else
+         echo "No ssh-agent running at all"
+      fi
 esac
 
