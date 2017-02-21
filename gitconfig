@@ -9,7 +9,7 @@
 [credential]
 	helper = cache
 [color]
-	ui = auto
+	ui = always
 	status = always
 [push]
 	default = current
