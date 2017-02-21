@@ -13,4 +13,6 @@
 	status = always
 [push]
 	default = current
-
+[sendemail]
+	smtpserver = smtp.taitradio.net
+	confirm = always
