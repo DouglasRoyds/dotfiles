@@ -7,6 +7,7 @@
 [merge]
 	tool = vimdiff
 [credential]
+	helper = cache
 [color]
 	ui = auto
 	status = always
