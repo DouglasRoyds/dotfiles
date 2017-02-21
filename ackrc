@@ -18,6 +18,7 @@
 # I commonly generate .cmake script files from .cmake.in macro files
 --type-add=cmake:match:/.*\.cmake\.in/
 
-# BitBake
+# New types
 --type-set=bitbake:ext:bblass,bb,inc,conf
+--type-set=kconfig:is:Kconfig
 
