@@ -7,7 +7,7 @@ fi
 
 # grep is fussy about the order of --include and --exclude[-dir] on the command line.
 # grep will not respect a --include that has any --excludes preceding it.
-grep_options="--exclude-dir=generated --exclude-dir=.svn --exclude=tags -I $color"
+grep_options="--exclude-dir=generated --exclude-dir=.svn --exclude-dir=.git --exclude=tags -I $color"
 alias egrep="egrep $grep_options"
 alias grep="grep $grep_options"
 
