@@ -16,3 +16,5 @@
 [sendemail]
 	smtpserver = smtp.taitradio.net
 	confirm = always
+[alias]
+	pullall = "!f(){ git pull \"$@\" && git submodule update --init --recursive; }; f"
