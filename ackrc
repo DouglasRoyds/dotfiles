@@ -19,6 +19,6 @@
 --type-add=cmake:match:/.*\.cmake\.in/
 
 # New types
---type-set=bitbake:ext:bblass,bb,inc,conf
+--type-set=bitbake:ext:bblass,bb,bbappend,inc,conf
 --type-set=kconfig:is:Kconfig
 
