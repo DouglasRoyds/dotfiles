@@ -96,3 +96,5 @@ case $exit_code in
       fi
 esac
 
+eval $(/usr/local/bin/thef??k --alias crikey)
+
