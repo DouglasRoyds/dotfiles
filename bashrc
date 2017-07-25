@@ -3,14 +3,14 @@
 # I just have a few of my preferred settings in this file.
 # Source me from ~/.bashrc
 
-# Only ignore duplicates.
-# Keep lines beginning with a space, as that is a common typo (ignorespace)
+# Erase old duplicate lines before adding this one at the tail of the history,
+# keeping every line I use alive for as long as possible.
+# Ignore lines beginning with a space, allowing me to keep commands out of the history
 # Keep a massive history.
-HISTCONTROL=ignoredups
+# Append to the history file, don't overwrite it
+HISTCONTROL=ignoredups:ignorespace
 HISTSIZE=10000
 HISTFILESIZE=10000
-
-# Append to the history file, don't overwrite it
 shopt -s histappend
 
 case "$COLORTERM" in
