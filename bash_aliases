@@ -11,6 +11,7 @@ grep_options="--exclude-dir=generated --exclude-dir=.svn --exclude-dir=.git --ex
 alias grep="grep $grep_options"
 alias egrep="egrep $grep_options"
 
+alias cal='ncal -bM'
 alias ffmpeg='ffmpeg -hide_banner'
 alias ls='ls ${color}'
 alias pstree='pstree -U'
