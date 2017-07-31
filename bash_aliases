@@ -8,16 +8,16 @@ fi
 # grep is fussy about the order of --include and --exclude[-dir] on the command line.
 # grep will not respect a --include that has any --excludes preceding it.
 grep_options="--exclude-dir=generated --exclude-dir=.svn --exclude-dir=.git --exclude=tags -I $color"
-alias egrep="egrep $grep_options"
 alias grep="grep $grep_options"
+alias egrep="egrep $grep_options"
 
+alias ffmpeg='ffmpeg -hide_banner'
 alias ls='ls ${color}'
 alias pstree='pstree -U'
 alias rdesktop='rdesktop -g1920x1060'
 alias svnmeld='svn diff --diff-cmd=subversion_meld_wrapper'
 alias svnvimdiff='svn diff --diff-cmd=/usr/local/bin/subversion_vimdiff_wrapper'
 alias tree='tree -CF --dirsfirst -I .svn -I CVS -I .git -I downloads'
-alias ffmpeg='ffmpeg -hide_banner'
 
 # Silence GTK warnings
 alias baobab='baobab 2>/dev/null'
