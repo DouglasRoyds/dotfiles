@@ -16,7 +16,9 @@
 --type-add=make:is:Makefile2
 
 # I commonly generate .cmake script files from .cmake.in macro files
+# and thing-config.h files from .h.in macro files.
 --type-add=cmake:match:/.*\.cmake\.in/
+--type-add=cmake:match:/.*\.h\.in/
 
 # New types
 --type-set=bitbake:ext:bblass,bb,bbappend,inc,conf
