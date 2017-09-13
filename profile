@@ -16,16 +16,18 @@ export EDITOR=/usr/bin/vim
 # Adapted from Joseph Reagle and Matt Lambie:
 # http://www.cygwin.com/ml/cygwin/2001-06/msg00537.html
 # http://stackoverflow.com/a/112618
+agent_pid_is_correct=false
 ssh_env=$HOME/.ssh/environment
 if [ -f $ssh_env ] ; then
    . $ssh_env > /dev/null
-   if ! kill -0 $SSH_AGENT_PID 2>/dev/null; then
-      echo "Stale ssh-agent file found. Spawning new agent"
-      eval $(ssh-agent | tee $ssh_env)
+   if pgrep ssh-agent | grep -q $SSH_AGENT_PID; then
+      agent_pid_is_correct=true
    fi
-else
+fi
+
+if ! $agent_pid_is_correct; then
    echo "Starting ssh-agent"
    eval $(ssh-agent | tee $ssh_env)
+   chmod 600 $ssh_env
 fi
-chmod 600 $ssh_env
 
