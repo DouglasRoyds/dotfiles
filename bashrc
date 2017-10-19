@@ -82,7 +82,7 @@ case $exit_code in
    0) # Key(s) already added to ssh-agent. Nothing to do
       ;;
 
-   1) # An agent is running, and SSH_AGENT_PID is set correctly, but no keys are added.
+   1) echo "An agent is running, and SSH_AGENT_PID is set correctly, but no keys are added."
       ssh-add
       ;;
 
