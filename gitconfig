@@ -1,6 +1,6 @@
 [user]
 	name = Douglas Royds
-	email = douglas.royds@server.fake
+	email = douglas.royds@taitradio.com
 [core]
 	excludesfile = ~/.gitignore
 	editor = vim
