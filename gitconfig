@@ -15,3 +15,5 @@
 	confirm = always
 [alias]
 	pullall = "!f(){ git pull \"$@\" && git submodule update --init --recursive; }; f"
+[pull]
+	ff = only
