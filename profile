@@ -11,6 +11,7 @@
 export LESS=-iRj5
 
 export EDITOR=/usr/bin/vim
+export ANSIBLE_NOCOWS=1
 
 # Start an ssh-agent
 # Adapted from Joseph Reagle and Matt Lambie:
