@@ -27,7 +27,7 @@ case "$1" in
       source-highlight --failsafe -f esc --lang-def=makefile.lang --style-file=esc.style -i $1
       ;;
 
-   *.cpp | *.cxx | *.hpp | *.c | *.h | *.py | *.lua | *.java | *.js | *.xml)
+   *.c | *.cpp | *.cxx | *.h | *.hpp | *.java | *.js | *.lua | *.py | *.sh | *.xml)
       source-highlight --failsafe --infer-lang -f esc --style-file=esc.style -i $1
       ;;
 
