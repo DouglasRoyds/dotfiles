@@ -75,6 +75,8 @@ set -P
 # Disable XON/XOFF flow control (ie. Ctrl-S), so that I can use Ctrl-S as the complement to Ctrl-R
 stty -ixon
 
-eval $(/usr/local/bin/thef??k --alias)
-eval $(/usr/local/bin/thef??k --alias crikey)
+if thefk=$(ls /usr/local/bin/thef??k 2>/dev/null); then
+   eval $($thefk --alias)
+   eval $($thefk --alias crikey)
+fi
 
