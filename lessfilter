@@ -11,7 +11,10 @@ case "$1" in
          echo
       done
       echo '*** Contents:'
-      ar -p "$1" data.tar.gz | tar -tzv
+      case "$(ar -t "$1" | grep data.tar)" in
+         *.gz)    ar -p "$1" data.tar.gz | tar -tvz ;;
+         *.xz)    ar -p "$1" data.tar.xz | tar -tvJ ;;
+      esac
       ;;
 
    # These patterns adapted from /usr/share/source-highlight/src-hilite-lesspipe.sh
