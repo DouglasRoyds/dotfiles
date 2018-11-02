@@ -18,3 +18,5 @@
 	oneline = log --oneline --decorate --graph --all
 [pull]
 	ff = only
+[push]
+	default = current
