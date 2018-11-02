@@ -59,6 +59,7 @@ if [ $(whoami) = "root" ]; then
 else
    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]$user_host\[\033[00m\]:\[\033[01;34m\]$short_pwd\[\033[00m\]\$ '
 fi
+PS2=""
 
 # Enable the double-star glob pattern, eg. this/**/that
 shopt -s globstar
