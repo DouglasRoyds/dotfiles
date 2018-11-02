@@ -37,6 +37,7 @@ alias libreoffice='libreoffice 2>/dev/null'
 alias meld='meld 2>/dev/null'
 alias rhythmbox='rhythmbox 2>/dev/null'
 alias totem='totem 2>/dev/null'
+alias turtl='turtl 2>/dev/null'
 alias unison='unison 2>/dev/null'
 alias x-www-browser='x-www-browser 2>/dev/null'
 
