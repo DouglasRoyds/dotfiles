@@ -5,6 +5,10 @@ if [ "$TERM" != "dumb" ] && [ -x /usr/bin/dircolors ]; then
     color='--color=auto'
 fi
 
+if echo $TERM | grep -q 256; then
+   alias tmux='tmux -2'
+fi
+
 # grep is fussy about the order of --include and --exclude[-dir] on the command line.
 # grep will not respect a --include that has any --excludes preceding it.
 grep_options="--exclude-dir=generated --exclude-dir=.svn --exclude-dir=.git --exclude=tags -I $color"
