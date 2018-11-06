@@ -1,6 +1,6 @@
 #!/bin/sh
 # Allows less to view the contents of .ipk files
-# Install me as ~/.lessfilter
+# Symlink me as ~/.lessfilter
 
 case "$1" in
    *.ipk)
