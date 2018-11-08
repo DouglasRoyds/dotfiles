@@ -1,4 +1,7 @@
 # Unison default preferences file
+
+# You must set the logfile to something writable on Windows,
+# or unison will just hang.
 log = true
 logfile = /home/douglas/.unison/unison.log
 
