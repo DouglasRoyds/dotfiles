@@ -20,3 +20,5 @@
 	ff = only
 [push]
 	default = current
+[rebase]
+	autoSquash = true
