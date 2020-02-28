@@ -97,9 +97,9 @@ SSH).
 Notably your desired environment variables (eg. PATH). These environment variables will be available to applications and
 scripts that you run from launchers, editors, or IDEs:
 
-    export SVN='http://svnhost.tait.co.nz:3180/svn/research/DBS'
-    export CCACHE_PATH=/home/roydsd/Work/DBS/build/tmp/cross/armv5te/bin:$PATH
-    export PATH=/home/roydsd/Work/DBS/tait.openembedded/trunk/tools:$PATH
+    export SVN='http://svnhost.someserver.com:3180/svn'
+    export CCACHE_PATH=/home/roydsd/build/tmp/cross/armv5te/bin:$PATH
+    export PATH=/home/roydsd/workspace/tools/bin:$PATH
 
 ### Put interactive settings in `~/.bashrc`
 
