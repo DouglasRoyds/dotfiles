@@ -1,5 +1,7 @@
 # Symlink me as ~/.bash_aliases
 
+export PROFILES="$PROFILES .bash_aliases"
+
 if [ "$TERM" != "dumb" ] && [ -x /usr/bin/dircolors ]; then
     eval "`dircolors -b`"
     color='--color=auto'
