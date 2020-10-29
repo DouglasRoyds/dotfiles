@@ -42,5 +42,4 @@ alias unison='unison 2>/dev/null'
 alias x-www-browser='x-www-browser 2>/dev/null'
 
 # Source host-specific aliases
-test -r "${HOME}/.bash_aliases_d/$(hostname)" && source "${HOME}/.bash_aliases_d/$(hostname)"
-
+test -r ~/.bash_aliases_d/$(hostname) && source ~/.bash_aliases_d/$(hostname)
