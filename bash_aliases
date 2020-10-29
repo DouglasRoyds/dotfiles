@@ -24,7 +24,7 @@ alias pstree='pstree -U'
 alias rdesktop='rdesktop -g1920x1060'
 alias svnmeld='svn diff --diff-cmd=subversion_meld_wrapper'
 alias svnvimdiff='svn diff --diff-cmd=/usr/local/bin/subversion_vimdiff_wrapper'
-alias tree='tree -CF --dirsfirst -I .svn -I CVS -I .git -I downloads'
+alias tree='tree -CF --dirsfirst --filelimit 80 -I .svn -I CVS -I .git'
 
 # Silence GTK warnings
 alias baobab='baobab 2>/dev/null'
