@@ -75,3 +75,5 @@ set -P
 
 # Disable XON/XOFF flow control (ie. Ctrl-S), so that I can use Ctrl-S as the complement to Ctrl-R
 stty -ixon
+
+CDPATH=.:~/workspace:~
