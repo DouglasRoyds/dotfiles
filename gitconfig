@@ -8,7 +8,7 @@
 [credential]
 	helper = cache
 [color]
-	ui = always
+	ui = auto
 	status = always
 [sendemail]
 	smtpserver = smtp.taitradio.net
