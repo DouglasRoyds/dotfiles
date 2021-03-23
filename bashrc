@@ -8,7 +8,7 @@
 # Ignore lines beginning with a space, allowing me to keep commands out of the history
 # Keep a massive history.
 # Append to the history file, don't overwrite it
-HISTCONTROL=ignoredups:ignorespace
+HISTCONTROL=ignorespace:erasedups
 HISTSIZE=10000
 HISTFILESIZE=10000
 shopt -s histappend
