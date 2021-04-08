@@ -15,7 +15,7 @@
 	confirm = always
 [alias]
 	pullall = "!f(){ git pull \"$@\" && git submodule update --init --recursive; }; f"
-	oneline = log --oneline --decorate --graph
+	oneline = log --oneline --decorate --graph --color
 [pull]
 	ff = only
 [push]
