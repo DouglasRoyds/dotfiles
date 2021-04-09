@@ -16,6 +16,7 @@
 [alias]
 	pullall = "!f(){ git pull \"$@\" && git submodule update --init --recursive; }; f"
 	oneline = log --oneline --decorate --graph --color
+	stauts = status
 [pull]
 	ff = only
 [push]
