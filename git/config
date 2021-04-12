@@ -6,12 +6,15 @@
 [merge]
 	tool = vimdiff
 [credential]
-	helper = cache
+	helper = libsecret
 [color]
 	ui = auto
 	status = always
 [sendemail]
-	smtpserver = smtp.taitradio.net
+	smtpserver = smtp.gmail.com
+	smtpencryption = tls
+	smtpserverport = 587
+	smtpuser = douglas.royds@taitradio.com
 	confirm = always
 [alias]
 	pullall = "!f(){ git pull \"$@\" && git submodule update --init --recursive; }; f"
