@@ -39,8 +39,16 @@ case "$1" in
       ;;
 
    *)
-      # The standard lesspipe/lessfile filter should handle this input
-      exit 1
+      if file $1 | grep -q 'shell script'; then
+         source-highlight --failsafe -f esc --lang-def=sh.lang --style-file=esc.style -i $1
+      elif file $1 | grep -q 'awk script'; then
+         source-highlight --failsafe -f esc --lang-def=awk.lang --style-file=esc.style -i $1
+      elif file $1 | grep -q 'Python script'; then
+         source-highlight --failsafe -f esc --lang-def=python.lang --style-file=esc.style -i $1
+      else
+         # The standard lesspipe/lessfile filter should handle this input
+         exit 1
+      fi
       ;;
 
 esac
