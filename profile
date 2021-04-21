@@ -4,6 +4,8 @@
 # Source me from ~/.profile
 # vim: ft=sh
 
+export PROFILES="$PROFILES dotfiles/profile"
+
 # Ubuntu now uses pam_umask by default, so no need to set it here.
 # pam_umask is smart enough to leave the umask at 0002 if your user and group ID
 # are the same, and the username and primary group name are the same.
