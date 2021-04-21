@@ -17,7 +17,7 @@
 	smtpuser = douglas.royds@taitradio.com
 	confirm = always
 [alias]
-	pullall = "!f(){ git pull \"$@\" && git submodule update --init --recursive; }; f"
+	pullall = "!f(){ git stash save \"Preparing to pull\" && git pull \"$@\" && git submodule update --init --recursive && git stash pop; }; f"
 	oneline = log --oneline --decorate --graph --color
 	stauts = status
 [pull]
