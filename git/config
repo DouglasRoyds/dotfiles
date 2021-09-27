@@ -11,10 +11,10 @@
 	ui = auto
 	status = always
 [sendemail]
-	smtpserver = smtp.gmail.com
-	smtpencryption = tls
-	smtpserverport = 587
-	smtpuser = douglas.royds@taitradio.com
+	smtpserver = smtp.taitradio.net
+#	smtpencryption = tls
+#	smtpserverport = 587
+#	smtpuser = douglas.royds@taitradio.com
 	confirm = always
 [alias]
 	pullall = "!f(){ git stash save \"Preparing to pull\" && git pull \"$@\" && git submodule update --init --recursive && git stash pop; }; f"
