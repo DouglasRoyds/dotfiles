@@ -43,5 +43,10 @@ alias turtl='turtl 2>/dev/null'
 alias unison='unison 2>/dev/null'
 alias x-www-browser='x-www-browser 2>/dev/null'
 
+# I keep typing vim commands in my console
+not_in_kansas="Toto, I've a feeling we're not in Kansas any more"
+alias :wq="echo \"$not_in_kansas\""
+alias :qa="echo \"$not_in_kansas\""
+
 # Source host-specific aliases
 test -r ~/.bash_aliases.d/$(hostname) && source ~/.bash_aliases.d/$(hostname)
