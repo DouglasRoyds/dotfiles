@@ -25,4 +25,4 @@
 --type-set=kconfig:is:Kconfig
 --type-set=markdown:ext:md,markdown
 --type-set=docker:is:Dockerfile
-
+--type-set=patch:ext:patch
