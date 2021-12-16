@@ -17,6 +17,7 @@ grep_options="--exclude-dir=generated --exclude-dir=.svn --exclude-dir=.git --ex
 alias grep="grep $grep_options"
 alias egrep="egrep $grep_options"
 
+alias ag="ag --color-match='01;31' --color-path=35 --smart-case"
 alias cal='ncal -bM'
 alias ffmpeg='ffmpeg -hide_banner'
 alias ls='ls ${color}'
