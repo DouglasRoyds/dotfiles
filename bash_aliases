@@ -29,6 +29,7 @@ alias tree='tree -CF --dirsfirst --filelimit 80 -I .svn -I CVS -I .git'
 
 # Silence GTK warnings
 alias baobab='baobab 2>/dev/null'
+alias diffpdf='diffpdf 2>/dev/null'
 alias eclipse='eclipse 2>/dev/null'
 alias eog='eog 2>/dev/null'
 alias evince='evince 2>/dev/null'
