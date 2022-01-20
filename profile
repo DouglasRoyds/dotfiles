@@ -26,6 +26,6 @@ export ANSIBLE_NOCOWS=1
 
 # I'm using gdm3, which starts gnome-keyring-daemon automatically at login.
 # We just need to set the SSH_AUTH_SOCK variable correctly in terminals.
-if [ "${DESKTOP_SESSION%-*}" = "sway" ]; then
+if echo "$DESKTOP_SESSION" | egrep -qx "i3|sway.*"; then
    export $(gnome-keyring-daemon --start)
 fi
