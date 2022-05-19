@@ -26,3 +26,5 @@
 [rebase]
 	autoSquash = true
 	autoStash = true
+[safe]
+	directory = /etc
