@@ -1,19 +1,19 @@
 [user]
 	name = Douglas Royds
-	email = douglas.royds@taitradio.com
+	email = douglas.royds@taitcommunications.com
 [core]
 	editor = vim
 [merge]
 	tool = vimdiff
 [credential]
-	helper = libsecret
+	helper = /usr/share/doc/git/contrib/credential/libsecret/git-credential-libsecret
 [color]
 	ui = always
 [sendemail]
-	smtpserver = smtp.taitradio.net
-#	smtpencryption = tls
-#	smtpserverport = 587
-#	smtpuser = douglas.royds@taitradio.com
+	smtpserver = smtp.gmail.com
+	smtpencryption = tls
+	smtpserverport = 587
+	smtpuser = douglas.royds@taitcommunications.com
 	confirm = always
 [alias]
 	pullall = "!f(){\n    git pull \"$@\" &&\n    git submodule update --init --recursive\n  }; f"
