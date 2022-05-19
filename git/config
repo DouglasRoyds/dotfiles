@@ -8,8 +8,7 @@
 [credential]
 	helper = libsecret
 [color]
-	ui = auto
-	status = always
+	ui = always
 [sendemail]
 	smtpserver = smtp.taitradio.net
 #	smtpencryption = tls
