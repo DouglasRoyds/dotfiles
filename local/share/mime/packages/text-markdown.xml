@@ -1,9 +1,0 @@
-<?xml version="1.0"?>
-<!-- symlink as .local/share/mime/packages/text-markdown.xml -->
-<!--    $ update-mime-database ~/.local/share/mime -->
-<mime-info xmlns="http://www.freedesktop.org/standards/shared-mime-info">
-  <mime-type type="text/plain">
-    <glob pattern="*.md"/>
-    <glob pattern="*.markdown"/>
-  </mime-type>
-</mime-info>
