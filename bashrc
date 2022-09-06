@@ -49,7 +49,7 @@ function prompt_command {
    # Append to the history file and read from it on every prompt.
    # Combines with my massive HISTSIZE settings above to share history between consoles
    history -a
-   history -r
+   history -n
 }
 export PROMPT_COMMAND=prompt_command
 
