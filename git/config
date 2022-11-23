@@ -28,3 +28,5 @@
 	autoStash = true
 [safe]
 	directory = /etc
+[remote "origin"]
+	fetch = +refs/notes/*:refs/notes/*
