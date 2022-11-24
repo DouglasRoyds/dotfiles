@@ -1,0 +1,65 @@
+# Unison preferences file
+# Synchronising AM's document repository between local HDD and portable USB HDD
+# Launch this profile with:
+#
+#     $ unison am
+
+include default.inc
+include am_paths.inc
+
+# Keep backup copies of all deleted or modified files (hence the *)
+# Keep them in a central location (rather than spread throughout the tree)
+#backup = Name *
+
+# Causes Unison to double-check (at the end of update detection) that this path exists, and abort if it does not.
+# Prevents Unison cheerfully erasing everything because a removable drive wasn't there.
+# Contrary to what's written in the manual, the mountpoint option must refer to a path within the roots
+mountpoint = Pictures
+
+# Unison's built-in implementation of the rsync algorithm makes transferring updates to existing files pretty fast.
+# However, for whole-file copies of newly created files, the built-in transfer method is not highly optimized.
+# If you have rsync installed, you can make Unison use it by setting the `copythreshold` flag to something non-negative.
+# Setting it to 1000 causes rsync to be used for all transfers larger than a megabyte.
+copythreshold = 1000
+
+# Don't ask for confirmation on non-conflicting changes - just do it.
+# Unison will still ask what to do when there's a conflict,
+# and it asks for confirmation before propagating all the changes as well.
+auto = true
+
+# Pretendwin makes Unison use file creation times as "pseudo-inode-numbers", even when running on a Unix system.
+# Fastcheck makes Unison check the modification time and length of a file, instead of reading the full contents of every file.
+# This may cause Unison to miss propagating an update if the modification time and length of the file are both unchanged by an update.
+# However, Unison will never overwrite such an update, since it always does a safe check for updates as well.
+# As the USB drive is a FAT32 system, I have little control over the permissions. Just ignore them.
+# Not required for Linux filesystems.
+pretendwin = true
+fastcheck = true
+perms = 0
+dontchmod = true
+
+path = Admin
+path = Anna-Marie
+path = House
+path = Pictures
+#path = Videos
+
+# Regex is anchored at the root. Path is not.
+# AM's phone pictures are being synched to the HP laptop via Resilio Sync
+# Don't copy counselling vids onto the HP
+ignore = Regex Anna-Marie/Pictures/Sync
+ignore = Regex Anna-Marie/Work/Videos
+
+ignore = Name {.sync}
+ignore = Name {Adobe Premiere Pro Auto-Save}
+ignore = Name {Adobe Premiere Pro Preview Files}
+ignore = Name {Encoded Files}
+ignore = Name {Media Cache Files}
+
+ignore = Path {Adobe}
+ignore = Path {AdobeStockPhotos}
+ignore = Path {Custom Office Templates}
+ignore = Path {My Kindle Content}
+ignore = Path {Version Cue}
+ignore = Path {Zoom}
+
