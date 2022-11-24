@@ -33,3 +33,5 @@ BoldBlue=96,96,255
 BoldMagenta=222,22,222
 BoldCyan=22,222,222
 BoldWhite=222,222,222
+Scrollbar=none
+ScrollMod=5
