@@ -4,7 +4,7 @@
 #
 #     $ unison portable
 
-include default
+include default.inc
 include portable_paths.inc
 
 # Keep backup copies of all deleted or modified files (hence the *)
