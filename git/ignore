@@ -1,6 +1,8 @@
 *.IDR*
 .*.sw?
+.cache/
 .svn/
 .swp
 .vscode/
+compile_commands.json
 
