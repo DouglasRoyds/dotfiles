@@ -5,10 +5,10 @@ OpaqueWhenFocused=no
 BoldAsColour=yes
 FontIsBold=no
 FontSmoothing=default
-Font=Lucida Console
+Font=Source Code Pro for Powerline
 FontHeight=10
 Columns=128
-Rows=64
+Rows=35
 CtrlShiftShortcuts=yes
 
 CursorColour=222,222,222
