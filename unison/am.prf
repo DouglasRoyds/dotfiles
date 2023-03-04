@@ -39,7 +39,6 @@ perms = 0
 dontchmod = true
 
 path = Admin
-path = Anna-Marie
 path = Pictures
 #path = Videos
 
