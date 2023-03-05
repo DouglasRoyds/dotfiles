@@ -39,7 +39,16 @@ perms = 0
 dontchmod = true
 
 # Regex is anchored at the root. Path is not.
+ignore = Regex Adobe
+ignore = Regex Adobe Stock Photos
+ignore = Regex Custom Office Templates
+ignore = Regex Fax
+ignore = Regex FeedbackHub
+ignore = Regex My Kindle Content
 ignore = Regex Pictures/Ndx/NdxBackups
+ignore = Regex Scanned Documents
+ignore = Regex Version Cue
+ignore = Regex Zoom
 
 # Pictures.new and Videos.new are photos and videos that have also been put in Pictures or Videos on the other machine.
 # Ignore them so that they don't conflict, and deleted pictures don't magically reappear on the other machine after a synch
