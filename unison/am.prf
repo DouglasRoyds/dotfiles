@@ -40,7 +40,7 @@ dontchmod = true
 
 path = Admin
 path = Pictures
-#path = Videos
+path = Videos
 
 # Regex is anchored at the root. Path is not.
 # AM's phone pictures are being synched to the HP laptop via Resilio Sync
