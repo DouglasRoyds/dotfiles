@@ -8,9 +8,10 @@
 # Ignore lines beginning with a space, allowing me to keep commands out of the history
 # Keep a massive history.
 # Append to the history file, don't overwrite it
+# TODO: Needs update to align with https://unix.stackexchange.com/a/18443/243093
 HISTCONTROL=ignorespace:erasedups
-HISTSIZE=10000
-HISTFILESIZE=10000
+HISTSIZE=100000
+HISTFILESIZE=1000000
 shopt -s histappend
 
 case "$COLORTERM" in
