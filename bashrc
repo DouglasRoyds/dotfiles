@@ -78,3 +78,7 @@ set -P
 stty -ixon
 
 CDPATH=.:~/workspace:~
+
+test -r ~/.bashrc.d/$(hostname) && source ~/.bashrc.d/$(hostname)
+test -r ~/.bash_aliases.d/$(hostname) && source ~/.bash_aliases.d/$(hostname)
+
