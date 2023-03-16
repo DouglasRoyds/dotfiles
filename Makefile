@@ -1,6 +1,8 @@
 # https://stackoverflow.com/a/2547973/2411520
 # https://stackoverflow.com/a/73450593/2411520
+# dotfiles is relative to HOME
 dotfiles := $(patsubst %/,%,$(dir $(realpath $(lastword $(MAKEFILE_LIST)))))
+dotfiles := $(subst $(HOME)/,,$(dotfiles))
 
 homedir = ackrc \
 	  bash_aliases \
@@ -45,19 +47,19 @@ $(homedir):
 .PHONY: $(dot_config)
 $(dot_config):
 	@mkdir -p $(HOME)/.config
-	@ln -snf $(dotfiles)/$@ $(HOME)/.config/$@
+	@ln -snf ../$(dotfiles)/$@ $(HOME)/.config/$@
 	@ls -ld --color $(HOME)/.config/$@
 
 .PHONY: $(unison)
 $(unison):
 	@mkdir -p $(HOME)/.unison
-	@ln -snf $(dotfiles)/unison/$@ $(HOME)/.unison/$@
+	@ln -snf ../$(dotfiles)/unison/$@ $(HOME)/.unison/$@
 	@ls -ld --color $(HOME)/.unison/$@
 
 .PHONY: $(firefox)
 $(firefox):
 	@if [ -d $(HOME)/snap/firefox/common ]; then \
-	    ln -snf $(dotfiles)/firefox/$@ $(HOME)/snap/firefox/common/$@; \
+	    ln -snf $(HOME)/$(dotfiles)/firefox/$@ $(HOME)/snap/firefox/common/$@; \
 	    ls -ld --color $(HOME)/snap/firefox/common/$@; \
 	 fi
 
