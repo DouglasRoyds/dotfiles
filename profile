@@ -6,6 +6,13 @@
 
 export PROFILES="$PROFILES dotfiles/profile"
 
+# Git bash for Windows doesn't provide a .profile at all.
+# I have copied over the default Ubuntu .profile,
+# and set it to always source .bashrc.
+# It also neither sets $USER nor changes to $HOME
+test -z "$USER" && export USER=$(basename $HOME)
+cd
+
 # Ubuntu now uses pam_umask by default, so no need to set it here.
 # pam_umask is smart enough to leave the umask at 0002 if your user and group ID
 # are the same, and the username and primary group name are the same.
