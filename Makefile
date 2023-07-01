@@ -32,6 +32,16 @@ firefox = mime.types
 profiles = bashrc \
 	   profile
 
+ifeq ($(OS),Windows_NT)
+   $(info Manually symlink a subset of:)
+   $(info home dir: $(homedir))
+   $(info .config/: $(dot_config))
+   $(info .unison/: $(unison))
+   $(info Source these files from .bashrc and .profile:)
+   $(info $(profiles))
+   $(error Windows installation using this Makefile not supported)
+endif
+
 .PHONY: all
 all: $(homedir) \
      $(dot_config) \
