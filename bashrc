@@ -3,6 +3,8 @@
 # I just have a few of my preferred settings in this file.
 # Source me from ~/.bashrc
 
+export PROFILES="$PROFILES dotfiles/bashrc"
+
 # Erase old duplicate lines before adding this one at the tail of the history,
 # keeping every line I use alive for as long as possible.
 # Ignore lines beginning with a space, allowing me to keep commands out of the history
