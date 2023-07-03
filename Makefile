@@ -56,30 +56,35 @@ all: $(homedir) \
 
 .PHONY: $(homedir)
 $(homedir):
-	@ln -snf $(dotfiles)/$@ $(HOME)/.$@
+	@rm -f $(HOME)/.$@
+	@ln -s $(dotfiles)/$@ $(HOME)/.$@
 	@ls -l --color $(HOME)/.$@
 
 .PHONY: $(dot_config)
 $(dot_config):
 	@mkdir -p $(HOME)/.config
-	@ln -snf ../$(dotfiles)/$@ $(HOME)/.config/$@
+	@rm -f $(HOME)/.config/$@
+	@ln -s ../$(dotfiles)/$@ $(HOME)/.config/$@
 	@ls -ld --color $(HOME)/.config/$@
 
 .PHONY: $(unison)
 $(unison):
 	@mkdir -p $(HOME)/.unison
-	@ln -snf ../$(dotfiles)/unison/$@ $(HOME)/.unison/$@
+	@rm -f $(HOME)/.unison/$@
+	@ln -s ../$(dotfiles)/unison/$@ $(HOME)/.unison/$@
 	@ls -ld --color $(HOME)/.unison/$@
 
 .PHONY: $(firefox)
 $(firefox):
 	@if [ -d $(HOME)/snap/firefox/common ]; then \
-	    ln -snf $(HOME)/$(dotfiles)/firefox/$@ $(HOME)/snap/firefox/common/$@; \
+	    rm -f $(HOME)/snap/firefox/common/$@; \
+	    ln -s $(HOME)/$(dotfiles)/firefox/$@ $(HOME)/snap/firefox/common/$@; \
 	    ls -ld --color $(HOME)/snap/firefox/common/$@; \
 	 fi
 
 .PHONY: $(profiles)
 $(profiles):
+	@touch $(HOME)/.$@
 	@if ! grep -q "$(dotfiles)/$@" $(HOME)/.$@; then \
 	    printf ". $(dotfiles)/$@ || true\n\n" >> $(HOME)/.$@; \
 	 fi
