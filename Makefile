@@ -46,12 +46,51 @@ else
    symlink_file = ln -s $(1) $(2)
 endif
 
-.PHONY: all
-all: $(homedir) \
-     $(dot_config) \
-     $(unison) \
-     $(firefox) \
-     $(profiles)
+# --------------------------- usage ----------------------------------------------
+
+define newline
+
+
+endef
+
+define usage
+Symlinks dotfiles into the HOME directory:
+
+ $(foreach file,$(homedir),  $$HOME/.$(file) -> workspace/dotfiles/$(file)$(newline))
+ $(foreach dir,$(dot_config),  $$HOME/.config/$(dir) -> ../workspace/dotfiles/$(dir)/$(newline))
+ $(foreach file,$(unison),  $$HOME/.unison/$(file) -> ../workspace/dotfiles/unison/$(file)$(newline))
+ $(foreach file,$(firefox),  $$HOME/snap/firefox/common/$(file) -> ~/workspace/dotfiles/firefox/$(file)$(newline))
+
+Sources bashrc and profile from .bashrc and .profile respectively:
+   
+   . workspace/dotfiles/profile || true
+   . workspace/dotfiles/bashrc || true
+
+Install:
+
+   $$ make install	# The lot
+   $$ make ackrc		# Just the one (note the absence of the leading dot)
+			# Use tab-completion to choose individual files
+
+On Windows:
+
+ - Install make using chocolatey.
+ - Run this Makefile in a git-bash shell with admin rights (required for symlinks).
+endef
+export usage
+
+.PHONY: usage
+usage:
+	@echo "$$usage"
+
+# --------------------------- install --------------------------------------------
+
+.PHONY: install
+install: $(homedir) \
+         $(dot_config) \
+         $(unison) \
+         $(firefox) \
+         $(profiles)
 
 .PHONY: $(homedir)
 $(homedir):
