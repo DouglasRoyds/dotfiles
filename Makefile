@@ -10,17 +10,19 @@ homedir = ackrc \
 	  bash_completion.d \
 	  cvsignore \
 	  cvsrc \
-	  dpkg.cfg \
 	  inputrc \
 	  lessfilter \
 	  minttyrc \
-	  tidyrc \
-	  tmux.conf \
-	  Xmodmap
+	  tidyrc
+
+linux_homedir = dpkg.cfg \
+	        tmux.conf \
+	        Xmodmap
 
 dot_config = gdb \
-	     git \
-	     gtk-3.0
+	     git
+
+linux_dot_config = gtk-3.0
 
 unison = am.prf \
 	 default.inc \
@@ -40,6 +42,9 @@ ifeq ($(OS),Windows_NT)
    $(info Source these files from .bashrc and .profile:)
    $(info $(profiles))
    $(error Windows installation using this Makefile not supported)
+else
+   homedir := $(homedir) $(linux_homedir)
+   dot_config := $(dot_config) $(linux_dot_config)
 endif
 
 .PHONY: all
