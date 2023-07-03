@@ -34,22 +34,6 @@ firefox = mime.types
 profiles = bashrc \
 	   profile
 
-# --------------------------- Windows --------------------------------------------
-
-ifeq ($(OS),Windows_NT)
-   HOME := $(subst $() ,/,$(wordlist 1,3,$(subst /, ,$(dotfiles))))
-   dotfiles := $(subst $(HOME)/,,$(dotfiles))
-   target = $(subst /,\,$(1))
-   link   = $(subst /,\,$(2))
-   symlink_dir  = cmd //c "mklink /d $(link) $(target)"
-   symlink_file = cmd //c "mklink    $(link) $(target)"
-else
-   homedir := $(homedir) $(linux_homedir)
-   dot_config := $(dot_config) $(linux_dot_config)
-   symlink_dir  = ln -s $(1) $(2)
-   symlink_file = ln -s $(1) $(2)
-endif
-
 # --------------------------- usage ----------------------------------------------
 
 define newline
@@ -86,6 +70,22 @@ export usage
 .PHONY: usage
 usage:
 	@echo "$$usage"
+
+# --------------------------- Windows, Linux -------------------------------------
+
+ifeq ($(OS),Windows_NT)
+   HOME := $(subst $() ,/,$(wordlist 1,3,$(subst /, ,$(dotfiles))))
+   dotfiles := $(subst $(HOME)/,,$(dotfiles))
+   target = $(subst /,\,$(1))
+   link   = $(subst /,\,$(2))
+   symlink_dir  = cmd //c "mklink /d $(link) $(target)"
+   symlink_file = cmd //c "mklink    $(link) $(target)"
+else
+   homedir := $(homedir) $(linux_homedir)
+   dot_config := $(dot_config) $(linux_dot_config)
+   symlink_dir  = ln -s $(1) $(2)
+   symlink_file = ln -s $(1) $(2)
+endif
 
 # --------------------------- install --------------------------------------------
 
