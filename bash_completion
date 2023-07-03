@@ -15,3 +15,7 @@ __expand_tilde_by_ref() {
 # Also add default completion, so that we can tab-complete into avfs archives in ~/.avfs
 complete -v -F _cd -o nospace -o default pushd
 
+python_version=$(python --version | grep -Eo '3.[0-9]+')
+site_packages=~/.local/lib/python$python_version/site-packages
+source "$site_packages/argcomplete/bash_completion.d/_python-argcomplete" || true
+
