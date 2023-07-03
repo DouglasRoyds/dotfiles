@@ -4,32 +4,31 @@
 dotfiles := $(patsubst %/,%,$(dir $(realpath $(lastword $(MAKEFILE_LIST)))))
 dotfiles := $(subst $(HOME)/,,$(dotfiles))
 
-homedir = ackrc \
-	  bash_aliases \
-	  bash_completion \
-	  cvsignore \
-	  cvsrc \
-	  inputrc \
-	  lessfilter \
-	  minttyrc \
-	  tidyrc
+homedir = $(HOME)/.ackrc \
+	  $(HOME)/.bash_aliases \
+	  $(HOME)/.bash_completion \
+	  $(HOME)/.cvsignore \
+	  $(HOME)/.cvsrc \
+	  $(HOME)/.inputrc \
+	  $(HOME)/.lessfilter \
+	  $(HOME)/.minttyrc \
+	  $(HOME)/.tidyrc
 
-linux_homedir = bash_completion.d \
-                dpkg.cfg \
-	        tmux.conf \
-	        Xmodmap
+linux_homedir = $(HOME)/.bash_completion.d \
+                $(HOME)/.dpkg.cfg \
+	        $(HOME)/.tmux.conf \
+	        $(HOME)/.Xmodmap
 
-dot_config = gdb \
-	     git
+dot_config = $(HOME)/.config/gdb \
+	     $(HOME)/.config/git
 
-linux_dot_config = gtk-3.0
+linux_dot_config = $(HOME)/.config/gtk-3.0
 
-unison = am.prf \
-	 default.inc \
-	 portable.prf
+unison = $(HOME)/.unison/am.prf \
+	 $(HOME)/.unison/default.inc \
+	 $(HOME)/.unison/portable.prf
 
-# ~/snap/firefox/common/
-firefox = mime.types
+firefox = $(HOME)/snap/firefox/common/mime.types
 
 profiles = bashrc \
 	   profile
@@ -44,10 +43,10 @@ endef
 define usage
 Symlinks dotfiles into the HOME directory:
 
- $(foreach file,$(homedir),  $$HOME/.$(file) -> workspace/dotfiles/$(file)$(newline))
- $(foreach dir,$(dot_config),  $$HOME/.config/$(dir) -> ../workspace/dotfiles/$(dir)/$(newline))
- $(foreach file,$(unison),  $$HOME/.unison/$(file) -> ../workspace/dotfiles/unison/$(file)$(newline))
- $(foreach file,$(firefox),  $$HOME/snap/firefox/common/$(file) -> ~/workspace/dotfiles/firefox/$(file)$(newline))
+ $(foreach file,$(homedir),  $(file) -> workspace/dotfiles/$(notdir $(file))$(newline))
+ $(foreach dir,$(dot_config),  $(dir) -> ../workspace/dotfiles/$(notdir $(dir))/$(newline))
+ $(foreach file,$(unison),  $(file) -> ../workspace/dotfiles/unison/$(notdir $(file))$(newline))
+ $(foreach file,$(firefox),  $(file) -> ~/workspace/dotfiles/firefox/$(notdir $(file))$(newline))
 
 Sources bashrc and profile from .bashrc and .profile respectively:
    
@@ -96,32 +95,24 @@ install: $(homedir) \
          $(firefox) \
          $(profiles)
 
-.PHONY: $(homedir)
-$(homedir):
-	@rm -f $(HOME)/.$@
-	@$(call symlink_file, $(dotfiles)/$@, $(HOME)/.$@)
-	@ls -l --color $(HOME)/.$@
+$(HOME)/.%: %
+	@$(call symlink_file, $(dotfiles)/$<, $@)
+	@ls -l --color $@
 
-.PHONY: $(dot_config)
-$(dot_config):
-	@mkdir -p $(HOME)/.config
-	@rm -f $(HOME)/.config/$@
-	@$(call symlink_dir, ../$(dotfiles)/$@, $(HOME)/.config/$@)
-	@ls -ld --color $(HOME)/.config/$@
+$(HOME)/.config/%: %
+	@mkdir -p $(dir $@)
+	@$(call symlink_dir, ../$(dotfiles)/$<, $@)
+	@ls -ld --color $@
 
-.PHONY: $(unison)
-$(unison):
-	@mkdir -p $(HOME)/.unison
-	@rm -f $(HOME)/.unison/$@
-	@$(call symlink_file, ../$(dotfiles)/unison/$@, $(HOME)/.unison/$@)
-	@ls -ld --color $(HOME)/.unison/$@
+$(HOME)/.unison/%: unison/%
+	@mkdir -p $(dir $@)
+	@$(call symlink_file, ../$(dotfiles)/$<, $@)
+	@ls -ld --color $@
 
-.PHONY: $(firefox)
-$(firefox):
-	@if [ -d $(HOME)/snap/firefox/common ]; then \
-	    rm -f $(HOME)/snap/firefox/common/$@; \
-	    $(call symlink_file, $(HOME)/$(dotfiles)/firefox/$@, $(HOME)/snap/firefox/common/$@); \
-	    ls -ld --color $(HOME)/snap/firefox/common/$@; \
+$(HOME)/snap/firefox/common/%: firefox/%
+	@if [ -d $(dir $@) ]; then \
+	    $(call symlink_file, $(HOME)/$(dotfiles)/$<, $@); \
+	    ls -ld --color $@; \
 	 fi
 
 .PHONY: $(profiles)
@@ -129,6 +120,6 @@ $(profiles):
 	@touch $(HOME)/.$@
 	@if ! grep -q "$(dotfiles)/$@" $(HOME)/.$@; then \
 	    printf ". $(dotfiles)/$@ || true\n\n" >> $(HOME)/.$@; \
+	    grep -H "dotfiles" $(HOME)/.$@; \
 	 fi
-	@grep -H "dotfiles" $(HOME)/.$@
 
