@@ -7,7 +7,6 @@ dotfiles := $(subst $(HOME)/,,$(dotfiles))
 homedir = ackrc \
 	  bash_aliases \
 	  bash_completion \
-	  bash_completion.d \
 	  cvsignore \
 	  cvsrc \
 	  inputrc \
@@ -15,7 +14,8 @@ homedir = ackrc \
 	  minttyrc \
 	  tidyrc
 
-linux_homedir = dpkg.cfg \
+linux_homedir = bash_completion.d \
+                dpkg.cfg \
 	        tmux.conf \
 	        Xmodmap
 
@@ -37,8 +37,12 @@ profiles = bashrc \
 # --------------------------- Windows --------------------------------------------
 
 ifeq ($(OS),Windows_NT)
-   symlink_dir  = cmd //c "mklink /d $(2) $(1)"
-   symlink_file = cmd //c "mklink    $(2) $(1)"
+   HOME := $(subst $() ,/,$(wordlist 1,3,$(subst /, ,$(dotfiles))))
+   dotfiles := $(subst $(HOME)/,,$(dotfiles))
+   target = $(subst /,\,$(1))
+   link   = $(subst /,\,$(2))
+   symlink_dir  = cmd //c "mklink /d $(link) $(target)"
+   symlink_file = cmd //c "mklink    $(link) $(target)"
 else
    homedir := $(homedir) $(linux_homedir)
    dot_config := $(dot_config) $(linux_dot_config)
@@ -126,5 +130,5 @@ $(profiles):
 	@if ! grep -q "$(dotfiles)/$@" $(HOME)/.$@; then \
 	    printf ". $(dotfiles)/$@ || true\n\n" >> $(HOME)/.$@; \
 	 fi
-	@grep -H "$(dotfiles)/$@" $(HOME)/.$@
+	@grep -H "dotfiles" $(HOME)/.$@
 
