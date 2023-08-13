@@ -1,5 +1,4 @@
 #!/bin/bash
-# Douglas's .bash_completion file
 
 for file in ~/.bash_completion.d/*; do
    source $file
