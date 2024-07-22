@@ -17,6 +17,10 @@ case "$1" in
       esac
       ;;
 
+   *.tbc | *.tbc02 | *.bundle)
+      tar -tvf "$1"
+      ;;
+
    # These patterns adapted from /usr/share/source-highlight/src-hilite-lesspipe.sh
    # We can't just directly source src-hilite-lesspipe.sh, as it assumes that it's the boss, and includes a *) case
    # If source-highlight is not installed, these commands will exit 127, passing control back to lesspipe
@@ -34,7 +38,7 @@ case "$1" in
       source-highlight --failsafe --infer-lang -f esc --style-file=esc.style -i $1
       ;;
 
-   *conf | *config | *.bbclass | *.bb | *.inc)
+   *conf | *config | *.bbclass | *.bb | *.bbappend | *.inc)
       source-highlight --failsafe -f esc --lang-def=sh.lang --style-file=esc.style -i $1
       ;;
 
