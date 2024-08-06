@@ -19,6 +19,7 @@
 	pullall = "!f(){\n    git pull \"$@\" &&\n    git submodule update --init --recursive\n  }; f"
 	oneline = log --oneline --decorate --graph --exclude=refs/stash --exclude=refs/notes/*
 	stauts = status
+	oneline-author = log --pretty='format:%C(auto)%h %<(15)%an %d %s'
 [pull]
 	ff = only
 [push]
@@ -37,3 +38,6 @@
 	process = git-lfs filter-process
 [advice]
 	skippedCherryPicks = false
+[pretty]
+	author = format:%h %<(15)%an %s
+
