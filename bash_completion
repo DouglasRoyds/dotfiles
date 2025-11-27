@@ -15,4 +15,5 @@ __expand_tilde_by_ref() {
 complete -v -F _cd -o nospace -o default pushd
 
 source "/usr/lib/python3/dist-packages/argcomplete/bash_completion.d/_python-argcomplete"
+source "/home/douglas/.local/share/pipx/venvs/ansible-core/lib/python3.12/site-packages/argcomplete/bash_completion.d/_python-argcomplete"
 
