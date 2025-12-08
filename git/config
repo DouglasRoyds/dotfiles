@@ -21,6 +21,7 @@
 	stauts = status
 	oneline-author = log --pretty='format:%C(auto)%h %<(15)%an %d %s'
 	one = log --stat -p -1 --pretty=fuller --notes
+	oneline-notes = log --pretty='format:%C(auto)%h %N%-C() %d %s'
 [pull]
 	ff = only
 [push]
